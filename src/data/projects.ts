@@ -90,8 +90,8 @@ export const PROJECTS: Project[] = [
       measurableResult:
         '71 automated test cases passing with sub-50ms local neural intent classification and zero external network latency.',
     },
-    coverImage: '',
-    hasRealScreenshot: false,
+    coverImage: '/images/projects/medha-cover.jpg',
+    hasRealScreenshot: true,
     tech: [
       'Python 3.10+',
       'PyQt5',
@@ -128,8 +128,8 @@ export const PROJECTS: Project[] = [
       measurableResult:
         '76 automated unit and fault-simulation tests passing across simulated network dropouts, missing dependencies, and corrupt payloads.',
     },
-    coverImage: '',
-    hasRealScreenshot: false,
+    coverImage: '/images/projects/recoverops-cover.jpg',
+    hasRealScreenshot: true,
     tech: [
       'Python 3.11 (stdlib)',
       'SQLite',
@@ -164,8 +164,8 @@ export const PROJECTS: Project[] = [
       measurableResult:
         '194-test regression suite passing across 15 test suites with verified USB OTG hardware radio bridges up to 921,600 baud.',
     },
-    coverImage: '',
-    hasRealScreenshot: false,
+    coverImage: '/images/projects/sentinel-cover.jpg',
+    hasRealScreenshot: true,
     tech: [
       'React 18',
       'Rust',
