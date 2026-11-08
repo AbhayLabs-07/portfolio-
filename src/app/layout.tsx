@@ -1,67 +1,81 @@
 import type { Metadata } from 'next';
-import { Space_Grotesk, Outfit, JetBrains_Mono } from 'next/font/google';
+import { Instrument_Serif, IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google';
 import './globals.css';
 
-const spaceGrotesk = Space_Grotesk({
-  variable: '--font-space-grotesk',
+const instrumentSerif = Instrument_Serif({
+  variable: '--font-instrument-serif',
   subsets: ['latin'],
   display: 'swap',
-  weight: ['400', '500', '600', '700'],
+  weight: ['400'],
+  style: ['normal', 'italic'],
 });
 
-const outfit = Outfit({
-  variable: '--font-outfit',
+const ibmPlexSans = IBM_Plex_Sans({
+  variable: '--font-ibm-plex-sans',
   subsets: ['latin'],
   display: 'swap',
-  weight: ['400', '500'],
+  weight: ['300', '400', '500', '600'],
 });
 
-const jetbrainsMono = JetBrains_Mono({
-  variable: '--font-jetbrains-mono',
+const ibmPlexMono = IBM_Plex_Mono({
+  variable: '--font-ibm-plex-mono',
   subsets: ['latin'],
   display: 'swap',
-  weight: ['400', '500'],
+  weight: ['400', '500', '600'],
 });
 
-const siteUrl = 'https://abhay.dev'; // Update with actual deployed URL
+const siteUrl = 'https://abhay-portfolio-six-jet.vercel.app';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Abhay Vishwakarma — AI Engineer & Embedded Systems Developer',
+    default: 'Abhay Vishwakarma — Engineering / AI / Robotics',
     template: '%s | Abhay Vishwakarma',
   },
   description:
-    'Portfolio of Abhay Vishwakarma — B.Tech AI & Data Science at TCET Mumbai. Building desktop AI agents, deterministic workflow engines, cooperative UAV systems, and full-stack web applications.',
+    'Editorial engineering portfolio of Abhay Vishwakarma — B.Tech Artificial Intelligence & Data Science at TCET Mumbai. Systems in autonomous UAV avionics, offline neural agency, robotics, and deterministic self-healing.',
   keywords: [
     'Abhay Vishwakarma',
-    'AI Engineer',
-    'Data Science',
-    'Embedded Systems',
+    'Cooperative UAV Perception System',
+    'Sentinel GCS',
+    'MEDHA AI',
+    'RecoverOps AI',
+    'UAV Engineering',
     'Robotics',
-    'UAV',
-    'TCET',
-    'Full-Stack Developer',
-    'Python',
-    'Next.js',
+    'MAVLink 2.0',
+    'ArduPilot',
+    'AI Systems',
+    'Embedded Systems',
+    'TCET Mumbai',
   ],
   authors: [{ name: 'Abhay Vishwakarma' }],
   creator: 'Abhay Vishwakarma',
+  icons: {
+    icon: '/favicon.ico',
+  },
   openGraph: {
     type: 'website',
     locale: 'en_IN',
     url: siteUrl,
-    siteName: 'Abhay Vishwakarma',
-    title: 'Abhay Vishwakarma — AI Engineer & Embedded Systems Developer',
+    siteName: 'Abhay Vishwakarma — Engineering Portfolio',
+    title: 'Abhay Vishwakarma — Engineering / AI / Robotics',
     description:
-      'Portfolio of Abhay Vishwakarma — B.Tech AI & Data Science at TCET Mumbai. Building desktop AI agents, deterministic workflow engines, cooperative UAV systems, and full-stack web applications.',
+      'Editorial engineering portfolio of Abhay Vishwakarma. Featured systems: Cooperative UAV Perception System, Sentinel GCS, MEDHA AI, and RecoverOps AI.',
+    images: [
+      {
+        url: '/images/abhay-portrait.jpg',
+        width: 800,
+        height: 1200,
+        alt: 'Abhay Vishwakarma — Engineering Portfolio',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Abhay Vishwakarma — AI Engineer & Embedded Systems Developer',
+    title: 'Abhay Vishwakarma — Engineering / AI / Robotics',
     description:
-      'Portfolio of Abhay Vishwakarma — B.Tech AI & Data Science at TCET Mumbai.',
-    creator: '@AbhayVishwakarma',
+      'Editorial engineering portfolio of Abhay Vishwakarma — B.Tech AI & Data Science at TCET Mumbai.',
+    images: ['/images/abhay-portrait.jpg'],
   },
   robots: {
     index: true,
@@ -87,46 +101,38 @@ export default function RootLayout({
     '@type': 'Person',
     name: 'Abhay Vishwakarma',
     url: siteUrl,
+    jobTitle: 'AI Systems & UAV Robotics Engineer',
+    alumniOf: {
+      '@type': 'CollegeOrUniversity',
+      name: 'Thakur College of Engineering and Technology (TCET)',
+    },
+    knowsAbout: [
+      'Autonomous UAV Systems',
+      'Artificial Intelligence',
+      'Embedded Systems',
+      'Avionics & GCS',
+      'Robotics',
+      'Deterministic Reliability Engineering',
+    ],
     sameAs: [
       'https://github.com/AbhayLabs-07',
       'https://linkedin.com/in/abhay-vishwakarma-6a64153b2',
-    ],
-    jobTitle: 'AI & Data Science Engineer',
-    alumniOf: {
-      '@type': 'CollegeOrUniversity',
-      name: 'Thakur College of Engineering and Technology',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Mumbai',
-        addressCountry: 'IN',
-      },
-    },
-    knowsAbout: [
-      'Artificial Intelligence',
-      'Data Science',
-      'Embedded Systems',
-      'Robotics',
-      'UAV Systems',
-      'Full-Stack Development',
     ],
   };
 
   return (
     <html
       lang="en"
-      className={`${spaceGrotesk.variable} ${outfit.variable} ${jetbrainsMono.variable} h-full`}
-      data-type="portfolio"
+      className={`${instrumentSerif.variable} ${ibmPlexSans.variable} ${ibmPlexMono.variable} scroll-smooth`}
     >
       <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <meta name="page-type" content="portfolio" />
-        <meta name="site-kind" content="software" />
-        <link rel="canonical" href={siteUrl} />
       </head>
-      <body className="min-h-full antialiased bg-[#12181F] text-[#F7F8FA] overflow-x-hidden">
+      <body className="bg-[#F4F1E8] text-[#242521] antialiased selection:bg-[#E65B35] selection:text-[#FAF9F6]">
         {children}
       </body>
     </html>

@@ -1,9 +1,10 @@
 import { Nav } from '@/components/Nav';
 import { HeroSection } from '@/components/HeroSection';
-import { AboutSection } from '@/components/AboutSection';
 import { ProjectsSection } from '@/components/ProjectsSection';
-import { SkillsSection } from '@/components/SkillsSection';
+import { EngineeringLabSection } from '@/components/EngineeringLabSection';
+import { AboutSection } from '@/components/AboutSection';
 import { ExperienceSection } from '@/components/ExperienceSection';
+import { SkillsSection } from '@/components/SkillsSection';
 import { ContactSection } from '@/components/ContactSection';
 import { Footer } from '@/components/Footer';
 
@@ -13,10 +14,11 @@ export default function Home() {
       <Nav />
       <main id="main-content">
         <HeroSection />
-        <AboutSection />
         <ProjectsSection />
-        <SkillsSection />
+        <EngineeringLabSection />
+        <AboutSection />
         <ExperienceSection />
+        <SkillsSection />
         <ContactSection />
       </main>
       <Footer />

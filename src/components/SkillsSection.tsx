@@ -1,69 +1,75 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { SKILL_DOMAINS } from '@/data/skills';
+const SKILL_DOMAINS = [
+  {
+    domain: 'Programming Languages',
+    skills: ['C++', 'Python 3.10 / 3.11', 'TypeScript', 'Rust (MAVLink Core)', 'C', 'SQL'],
+  },
+  {
+    domain: 'AI & Edge Perception',
+    skills: ['Ultralytics YOLOv8', 'OpenCV', 'Custom Pure-Python NNs', 'Voice Biometrics (MFCC)', 'WGS-84 Geodesy'],
+  },
+  {
+    domain: 'Embedded Systems & Hardware',
+    skills: ['ESP32', 'Arduino', 'ESP-NOW Radio Frames', 'UART / SPI / I2C Buses', 'Sensors & IMUs', 'USB OTG Serial'],
+  },
+  {
+    domain: 'UAV Avionics & Flight Control',
+    skills: ['ArduPilot (ArduCopter/Plane)', 'MAVLink 2.0 Protocol', 'Pixhawk / Cube Autopilots', 'Mission Planner', 'Dubins Path Planning', 'SITL Simulation'],
+  },
+  {
+    domain: 'Frontend & System Runtime',
+    skills: ['React 18', 'Next.js (App Router)', 'Tailwind CSS', 'Tauri v2 (Android Container)', 'PyQt5', 'MapLibre GL 3D', 'Playwright CDP', 'Docker'],
+  },
+];
 
 export function SkillsSection() {
   return (
     <section
       id="skills"
-      className="relative border-t border-[#1E2630]"
+      className="relative border-b border-[#E2DDD1] bg-[#FAF9F6] py-16 md:py-20"
       aria-labelledby="skills-heading"
     >
       <div className="section-container">
-        {/* Heading */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="mb-14"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="font-mono text-xs tracking-[0.2em] text-[#D62828] uppercase">
-              Capabilities
-            </span>
-            <span className="accent-line" aria-hidden />
+        
+        {/* Compact Editorial Section Header */}
+        <div className="pb-8 border-b border-[#E2DDD1] mb-10">
+          <div className="font-mono text-xs uppercase tracking-[0.2em] text-[#E65B35] font-semibold mb-2 flex items-center gap-2">
+            <span>TECHNICAL REPERTOIRE</span>
+            <span className="w-8 h-px bg-[#E65B35]" />
           </div>
           <h2
             id="skills-heading"
-            className="text-[clamp(2.25rem,5vw,3.5rem)] font-display font-bold text-[#F7F8FA] leading-[1.1] tracking-tight"
+            className="text-3xl sm:text-4xl font-display italic text-[#242521] tracking-tight leading-tight"
           >
             Technical Skills
           </h2>
-        </motion.div>
+        </div>
 
-        {/* Domain grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {SKILL_DOMAINS.map((domain, i) => (
-            <motion.div
-              key={domain.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-60px' }}
-              transition={{
-                duration: 0.5,
-                delay: i * 0.07,
-                ease: 'easeOut',
-              }}
-              className="bg-[#191F27] border border-[#252D38] p-6 hover:border-[#D62828]/20 transition-colors duration-200"
+        {/* Compact Domain-Grouped Tag List */}
+        <div className="divide-y divide-[#E2DDD1] border-y border-[#E2DDD1]">
+          {SKILL_DOMAINS.map((group) => (
+            <div
+              key={group.domain}
+              className="py-5 grid grid-cols-1 md:grid-cols-[220px_1fr] gap-4 items-baseline"
             >
-              <h3 className="font-display font-semibold text-[#F7F8FA] mb-1 text-base">
-                {domain.title}
-              </h3>
-              <p className="text-xs text-[#5A6472] leading-relaxed mb-5">
-                {domain.description}
-              </p>
-              <div className="flex flex-wrap gap-1.5">
-                {domain.skills.map((skill) => (
-                  <span key={skill.name} className="tech-tag">
-                    {skill.name}
+              <div className="font-mono text-xs font-semibold text-[#242521] uppercase tracking-wider">
+                {group.domain}
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {group.skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="editorial-tag text-xs bg-[#F4F1E8] border-[#DCD8CE] text-[#242521]"
+                  >
+                    {skill}
                   </span>
                 ))}
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
+
       </div>
     </section>
   );

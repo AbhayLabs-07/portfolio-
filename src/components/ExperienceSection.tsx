@@ -1,118 +1,93 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { EXPERIENCE } from '@/data/experience';
-import { GraduationCap, Cpu } from 'lucide-react';
-import type { LucideIcon } from 'lucide-react';
-
-const ICONS: Record<string, LucideIcon> = {
-  'erc-tcet': Cpu,
-  'tcet': GraduationCap,
-};
+import { ArrowUpRight } from 'lucide-react';
+import { TIMELINE_ENTRIES } from '@/data/experience';
 
 export function ExperienceSection() {
   return (
     <section
       id="experience"
-      className="relative border-t border-[#1E2630]"
+      className="relative border-b border-[#E2DDD1] bg-[#F4F1E8] py-20 md:py-28"
       aria-labelledby="experience-heading"
     >
       <div className="section-container">
-        {/* Heading */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="mb-14"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="font-mono text-xs tracking-[0.2em] text-[#D62828] uppercase">
-              Background
-            </span>
-            <span className="accent-line" aria-hidden />
+        
+        {/* Editorial Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-[#E2DDD1] mb-16">
+          <div>
+            <div className="font-mono text-xs uppercase tracking-[0.2em] text-[#E65B35] font-semibold mb-3 flex items-center gap-2">
+              <span>CHRONOLOGY &amp; TRACK RECORD</span>
+              <span className="w-8 h-px bg-[#E65B35]" />
+            </div>
+            <h2
+              id="experience-heading"
+              className="text-4xl sm:text-5xl md:text-6xl font-display italic text-[#242521] tracking-tight leading-tight"
+            >
+              Experience &amp; Education
+            </h2>
           </div>
-          <h2
-            id="experience-heading"
-            className="text-[clamp(2.25rem,5vw,3.5rem)] font-display font-bold text-[#F7F8FA] leading-[1.1] tracking-tight"
-          >
-            Experience &amp; Education
-          </h2>
-        </motion.div>
-
-        {/* Timeline */}
-        <div className="relative">
-          {/* Vertical rule */}
-          <div
-            className="absolute left-5 top-0 bottom-0 w-px bg-[#1E2630] hidden md:block"
-            aria-hidden
-          />
-
-          <div className="space-y-10">
-            {EXPERIENCE.map((item, i) => {
-              const Icon = ICONS[item.id] ?? Cpu;
-              return (
-                <motion.div
-                  key={item.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-60px' }}
-                  transition={{
-                    duration: 0.5,
-                    delay: i * 0.1,
-                    ease: 'easeOut',
-                  }}
-                  className="md:pl-16 relative"
-                >
-                  {/* Timeline dot */}
-                  <div
-                    className="absolute left-0 top-0 w-10 h-10 rounded-full bg-[#191F27] border border-[#252D38] hidden md:flex items-center justify-center"
-                    aria-hidden
-                  >
-                    <Icon size={16} className="text-[#D62828]" />
-                  </div>
-
-                  {/* Card */}
-                  <div className="bg-[#191F27] border border-[#252D38] p-6 md:p-8">
-                    {/* Period */}
-                    <div className="font-mono text-xs text-[#5A6472] tracking-wide mb-3">
-                      {item.period}
-                    </div>
-
-                    {/* Role */}
-                    <h3 className="font-display font-semibold text-lg text-[#F7F8FA] mb-1">
-                      {item.role}
-                    </h3>
-                    <div className="text-sm text-[#1560D4] mb-4 font-medium">
-                      {item.org}
-                    </div>
-
-                    {/* Description */}
-                    <p className="text-sm text-[#9BA3AE] leading-relaxed mb-5">
-                      {item.description}
-                    </p>
-
-                    {/* Highlights */}
-                    <ul className="space-y-2.5">
-                      {item.highlights.map((h, j) => (
-                        <li
-                          key={j}
-                          className="flex gap-3 text-sm text-[#9BA3AE] leading-relaxed"
-                        >
-                          <span
-                            className="mt-1.5 w-1 h-1 rounded-full bg-[#D62828] flex-shrink-0"
-                            aria-hidden
-                          />
-                          {h}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </motion.div>
-              );
-            })}
+          <div className="font-mono text-xs text-[#77766F] max-w-sm">
+            Academic degree program, systems architecture research, open-source aerospace avionics, and collegiate robotics engineering.
           </div>
         </div>
+
+        {/* Clean Editorial Timeline */}
+        <div className="space-y-12">
+          {TIMELINE_ENTRIES.map((entry) => (
+            <div
+              key={entry.id}
+              className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-6 lg:gap-12 pb-12 border-b border-[#E2DDD1] last:border-b-0 last:pb-0"
+            >
+              {/* Left Column: Metadata */}
+              <div className="space-y-2 font-mono">
+                <div className="text-xs uppercase tracking-wider text-[#E65B35] font-semibold">
+                  {entry.category}
+                </div>
+                <div className="text-sm font-semibold text-[#242521]">
+                  {entry.date}
+                </div>
+                <div className="text-xs text-[#77766F]">
+                  {entry.organization}
+                </div>
+              </div>
+
+              {/* Right Column: Role & Narrative */}
+              <div className="space-y-4">
+                <div className="flex flex-wrap items-baseline justify-between gap-2">
+                  <h3 className="font-display italic text-2xl sm:text-3xl text-[#242521]">
+                    {entry.position}
+                  </h3>
+                  {entry.link && (
+                    <a
+                      href={entry.link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 font-mono text-xs text-[#77766F] hover:text-[#242521] transition-colors"
+                    >
+                      <span>{entry.link.label}</span>
+                      <ArrowUpRight size={12} />
+                    </a>
+                  )}
+                </div>
+
+                <p className="text-base text-[#77766F] leading-relaxed font-body">
+                  {entry.description}
+                </p>
+
+                {/* Highlights List */}
+                <div className="space-y-1.5 pt-2 font-mono text-xs text-[#242521]">
+                  {entry.highlights.map((h, i) => (
+                    <div key={i} className="flex items-start gap-2.5">
+                      <span className="text-[#E65B35]">↳</span>
+                      <span className="leading-relaxed">{h}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
       </div>
     </section>
   );

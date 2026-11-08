@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://abhay.dev/sitemap.xml
-
+Sitemap: https://abhay-portfolio-six-jet.vercel.app/sitemap.xml
