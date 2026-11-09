@@ -40,32 +40,32 @@ export function SkillsSection() {
           </div>
           <h2
             id="skills-heading"
-            className="text-3xl sm:text-4xl font-display italic text-[#242521] tracking-tight leading-tight"
+            className="text-3xl sm:text-4xl font-display font-bold text-[#242521] tracking-tight leading-tight"
           >
             Technical Skills
           </h2>
         </div>
 
-        {/* Compact Domain-Grouped Tag List */}
+        {/* Clean Text-Based Technical Competencies List (No Box Tags) */}
         <div className="divide-y divide-[#E2DDD1] border-y border-[#E2DDD1]">
           {SKILL_DOMAINS.map((group) => (
             <div
               key={group.domain}
-              className="py-5 grid grid-cols-1 md:grid-cols-[220px_1fr] gap-4 items-baseline"
+              className="py-5 grid grid-cols-1 md:grid-cols-[240px_1fr] gap-3 md:gap-6 items-baseline"
             >
               <div className="font-mono text-xs font-semibold text-[#242521] uppercase tracking-wider">
                 {group.domain}
               </div>
-              <div className="flex flex-wrap gap-2">
-                {group.skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="editorial-tag text-xs bg-[#F4F1E8] border-[#DCD8CE] text-[#242521]"
-                  >
-                    {skill}
+              <p className="font-body text-sm sm:text-base text-[#242521] leading-relaxed">
+                {group.skills.map((skill, idx) => (
+                  <span key={skill} className="inline-block">
+                    <span className="font-medium text-[#242521]">{skill}</span>
+                    {idx < group.skills.length - 1 && (
+                      <span className="mx-2.5 text-[#CCC6B8] select-none">/</span>
+                    )}
                   </span>
                 ))}
-              </div>
+              </p>
             </div>
           ))}
         </div>

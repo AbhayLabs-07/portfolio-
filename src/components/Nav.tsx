@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const NAV_ITEMS = [
   { label: 'Projects', href: '#projects' },
@@ -66,20 +66,19 @@ export function Nav() {
         role="banner"
       >
         <div className="max-w-[1240px] mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
-          {/* Logo / Monogram */}
+          {/* Logo: Clean Abhay Vishwakarma without orange dot */}
           <a
             href="#hero"
             onClick={(e) => {
               e.preventDefault();
               handleNavClick('#hero');
             }}
-            className="flex items-center gap-2.5 group focus-visible:outline-[#E65B35]"
+            className="flex items-center group focus-visible:outline-[#E65B35]"
             aria-label="Abhay Vishwakarma — Home"
           >
-            <span className="font-mono text-xs font-semibold tracking-[0.16em] uppercase text-[#242521] group-hover:text-[#E65B35] transition-colors">
+            <span className="font-display text-xs sm:text-sm font-bold tracking-[0.14em] uppercase text-[#242521]">
               ABHAY VISHWAKARMA
             </span>
-            <span className="hidden sm:inline-block w-1.5 h-1.5 rounded-full bg-[#E65B35]" aria-hidden />
           </a>
 
           {/* Desktop Navigation */}
@@ -107,17 +106,6 @@ export function Nav() {
                 </a>
               );
             })}
-
-            {/* Resume Action */}
-            <a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-xs font-mono uppercase tracking-wider text-[#242521] hover:text-[#E65B35] px-2.5 py-1 border border-[#CCC6B8] hover:border-[#E65B35] rounded-xs transition-colors focus-visible:outline-[#E65B35]"
-            >
-              <span>Download Resume</span>
-              <ArrowUpRight size={12} className="text-[#77766F]" aria-hidden />
-            </a>
           </nav>
 
           {/* Mobile menu toggle */}
@@ -152,7 +140,7 @@ export function Nav() {
                 e.preventDefault();
                 handleNavClick(item.href);
               }}
-              className="py-3 text-2xl font-display text-[#242521] hover:text-[#E65B35] border-b border-[#E2DDD1] transition-colors"
+              className="py-3 text-2xl font-display font-bold text-[#242521] hover:text-[#E65B35] border-b border-[#E2DDD1] transition-colors"
               tabIndex={menuOpen ? 0 : -1}
             >
               {item.label}
@@ -160,16 +148,9 @@ export function Nav() {
           ))}
         </nav>
 
-        <div className="pt-6 border-t border-[#E2DDD1] flex items-center justify-between font-mono text-xs">
-          <span className="text-[#77766F]">TCET MUMBAI / 2026</span>
-          <a
-            href="/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[#E65B35] font-semibold underline underline-offset-4"
-          >
-            Download Resume
-          </a>
+        <div className="pt-6 border-t border-[#E2DDD1] flex items-center justify-between font-mono text-xs text-[#77766F]">
+          <span>MUMBAI, INDIA</span>
+          <span>ENGINEERING / AI / ROBOTICS</span>
         </div>
       </div>
     </>

@@ -24,6 +24,8 @@
 .DS_Store
 *.pem
 .playwright-mcp/
+typography-*.png
+homepage-*.png
 
 # debug
 npm-debug.log*

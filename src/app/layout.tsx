@@ -1,5 +1,15 @@
 import type { Metadata } from 'next';
-import { Instrument_Serif, IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google';
+import {
+  Instrument_Serif,
+  IBM_Plex_Sans,
+  IBM_Plex_Mono,
+  Sora,
+  Inter,
+  Space_Grotesk,
+  DM_Sans,
+  Manrope,
+  Syne,
+} from 'next/font/google';
 import './globals.css';
 
 const instrumentSerif = Instrument_Serif({
@@ -22,6 +32,49 @@ const ibmPlexMono = IBM_Plex_Mono({
   subsets: ['latin'],
   display: 'swap',
   weight: ['400', '500', '600'],
+});
+
+// Candidate Font Combinations for Awwwards-style Typography Redesign
+const sora = Sora({
+  variable: '--font-sora',
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['400', '500', '600', '700'],
+});
+
+const inter = Inter({
+  variable: '--font-inter',
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['300', '400', '500', '600'],
+});
+
+const spaceGrotesk = Space_Grotesk({
+  variable: '--font-space-grotesk',
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['400', '500', '600', '700'],
+});
+
+const dmSans = DM_Sans({
+  variable: '--font-dm-sans',
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['400', '500', '700'],
+});
+
+const manrope = Manrope({
+  variable: '--font-manrope',
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['400', '500', '600', '700', '800'],
+});
+
+const syne = Syne({
+  variable: '--font-syne',
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['600', '700', '800'],
 });
 
 const siteUrl = 'https://abhay-portfolio-six-jet.vercel.app';
@@ -126,11 +179,20 @@ export default function RootLayout({
     ],
   };
 
+  const fontVariables = [
+    instrumentSerif.variable,
+    ibmPlexSans.variable,
+    ibmPlexMono.variable,
+    sora.variable,
+    inter.variable,
+    spaceGrotesk.variable,
+    dmSans.variable,
+    manrope.variable,
+    syne.variable,
+  ].join(' ');
+
   return (
-    <html
-      lang="en"
-      className={`${instrumentSerif.variable} ${ibmPlexSans.variable} ${ibmPlexMono.variable} scroll-smooth`}
-    >
+    <html lang="en" className={`${fontVariables} scroll-smooth`}>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <script

@@ -20,9 +20,9 @@
   --color-technical-blue:    #315D80;
   --color-blue-subtle:       #EBF1F5;
 
-  /* Typography */
-  --font-display:   var(--font-instrument-serif), Georgia, 'Times New Roman', serif;
-  --font-body:      var(--font-ibm-plex-sans), system-ui, sans-serif;
+  /* Typography — Option 2: Space Grotesk (Headings) + DM Sans (Body) */
+  --font-display:   var(--font-space-grotesk), monospace, system-ui, sans-serif;
+  --font-body:      var(--font-dm-sans), system-ui, sans-serif;
   --font-mono:      var(--font-ibm-plex-mono), 'Courier New', monospace;
 
   /* Spacing Scale */
@@ -145,4 +145,29 @@ body {
   background-image: 
     linear-gradient(to right, rgba(119, 118, 111, 0.06) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(119, 118, 111, 0.06) 1px, transparent 1px);
+}
+
+/* Candidate Typography Utility Classes for Visual Preview */
+.font-sora {
+  font-family: var(--font-sora), system-ui, sans-serif;
+}
+
+.font-inter {
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.font-space-grotesk {
+  font-family: var(--font-space-grotesk), monospace, system-ui, sans-serif;
+}
+
+.font-dm-sans {
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
+}
+
+.font-manrope {
+  font-family: var(--font-manrope), system-ui, sans-serif;
+}
+
+.font-syne {
+  font-family: var(--font-syne), system-ui, sans-serif;
 }

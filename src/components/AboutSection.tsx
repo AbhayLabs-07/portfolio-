@@ -20,7 +20,7 @@ export function AboutSection() {
           </div>
           <h2
             id="about-heading"
-            className="text-4xl sm:text-5xl md:text-6xl font-display italic text-[#242521] tracking-tight leading-tight max-w-3xl"
+            className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-[#242521] tracking-tight leading-tight max-w-3xl"
           >
             &ldquo;An engineer interested in the intersection of intelligence, machines, and systems.&rdquo;
           </h2>

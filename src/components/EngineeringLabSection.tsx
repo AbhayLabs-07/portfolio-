@@ -103,13 +103,10 @@ export function EngineeringLabSection() {
             </div>
             <h2
               id="engineering-lab-heading"
-              className="text-4xl sm:text-5xl md:text-6xl font-display italic text-[#242521] tracking-tight leading-tight"
+              className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-[#242521] tracking-tight leading-tight"
             >
               The Engineering Lab
             </h2>
-          </div>
-          <div className="font-mono text-xs text-[#77766F] max-w-sm">
-            Technical explorations across embedded microcontroller circuits, autonomous UAV avionics, edge computer vision, and deterministic software infrastructure.
           </div>
         </div>
 
@@ -132,7 +129,7 @@ export function EngineeringLabSection() {
                 </div>
 
                 {/* Title & Focus */}
-                <h3 className="font-display italic text-2xl sm:text-3xl text-[#242521] mb-2 leading-snug">
+                <h3 className="font-display font-bold text-2xl sm:text-3xl text-[#242521] mb-2 leading-snug">
                   {module.title}
                 </h3>
                 <div className="font-mono text-xs text-[#E65B35] font-medium mb-5">

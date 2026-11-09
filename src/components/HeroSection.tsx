@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowDown, FileText } from 'lucide-react';
+import { ArrowDown, Mail } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from '@/components/icons/SocialIcons';
 import { PortraitCard } from '@/components/PortraitCard';
 
@@ -28,13 +28,13 @@ export function HeroSection() {
                 <span className="w-6 h-px bg-[#E65B35]" />
               </div>
 
-              {/* Large Name */}
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-mono font-medium text-[#242521] tracking-tight mb-4">
+              {/* Large Name — Option 2: Space Grotesk sans-serif (no typewriter mono) */}
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-[#242521] tracking-tight mb-4">
                 Abhay Vishwakarma
               </h1>
 
-              {/* Headline with Instrument Serif — No quote marks */}
-              <h2 className="text-[clamp(2.75rem,5.2vw,4.5rem)] font-display italic text-[#242521] leading-[1.02] tracking-tight mb-6">
+              {/* Headline with Option 2 Space Grotesk Bold — No italic */}
+              <h2 className="text-[clamp(2.75rem,5.2vw,4.5rem)] font-display font-bold text-[#242521] leading-[1.05] tracking-tight mb-6">
                 Building intelligence beyond the screen.
               </h2>
 
@@ -55,40 +55,37 @@ export function HeroSection() {
                   <ArrowDown size={14} aria-hidden />
                 </button>
 
-                <a
-                  href="/resume.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#FAF9F6] border border-[#CCC6B8] hover:border-[#242521] text-[#242521] text-xs font-mono uppercase tracking-wider font-medium rounded-xs transition-colors duration-150 focus-visible:outline-[#E65B35]"
-                >
-                  <FileText size={14} className="text-[#77766F]" aria-hidden />
-                  <span>Download Resume</span>
-                </a>
-
-                {/* Social Icon Links */}
-                <div className="flex items-center gap-2">
+                {/* Interactive Social & Direct Contact Icons */}
+                <div className="flex items-center gap-2.5">
+                  <a
+                    href="mailto:abhayvishwakarma200007@gmail.com"
+                    className="group p-3 bg-[#FAF9F6] border border-[#CCC6B8] hover:border-[#E65B35] text-[#242521] hover:text-[#E65B35] rounded-xs transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xs focus-visible:outline-[#E65B35]"
+                    aria-label="Send direct email"
+                  >
+                    <Mail size={16} className="transition-transform duration-200 group-hover:scale-110" />
+                  </a>
                   <a
                     href="https://github.com/AbhayLabs-07"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3 bg-[#FAF9F6] border border-[#CCC6B8] hover:border-[#242521] text-[#242521] hover:text-[#E65B35] rounded-xs transition-colors focus-visible:outline-[#E65B35]"
+                    className="group p-3 bg-[#FAF9F6] border border-[#CCC6B8] hover:border-[#242521] text-[#242521] hover:text-[#E65B35] rounded-xs transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xs focus-visible:outline-[#E65B35]"
                     aria-label="GitHub Profile (opens in new tab)"
                   >
-                    <GithubIcon size={16} />
+                    <GithubIcon size={16} className="transition-transform duration-200 group-hover:scale-110" />
                   </a>
                   <a
                     href="https://linkedin.com/in/abhay-vishwakarma-6a64153b2"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3 bg-[#FAF9F6] border border-[#CCC6B8] hover:border-[#315D80] text-[#242521] hover:text-[#315D80] rounded-xs transition-colors focus-visible:outline-[#E65B35]"
+                    className="group p-3 bg-[#FAF9F6] border border-[#CCC6B8] hover:border-[#315D80] text-[#242521] hover:text-[#315D80] rounded-xs transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xs focus-visible:outline-[#E65B35]"
                     aria-label="LinkedIn Profile (opens in new tab)"
                   >
-                    <LinkedinIcon size={16} />
+                    <LinkedinIcon size={16} className="transition-transform duration-200 group-hover:scale-110" />
                   </a>
                 </div>
               </div>
 
-              {/* Subtle Technical Annotation */}
+              {/* Subtle Technical Annotation — Mumbai India IDS */}
               <div className="pt-6 border-t border-[#E2DDD1] flex flex-wrap items-center justify-between gap-3 font-mono text-xs text-[#77766F]">
                 <div>
                   <span className="text-[#242521] font-semibold">Mumbai, India</span> · AI &amp; Data Science

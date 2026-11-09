@@ -31,7 +31,7 @@ export function ExperienceSection() {
             </div>
             <h2
               id="experience-heading"
-              className="text-4xl sm:text-5xl md:text-6xl font-display italic text-[#242521] tracking-tight leading-tight"
+              className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-[#242521] tracking-tight leading-tight"
             >
               Experience &amp; Education
             </h2>
@@ -70,7 +70,7 @@ export function ExperienceSection() {
                 {/* Right Column: Role & Narrative */}
                 <div className="space-y-4">
                   <div className="flex flex-wrap items-baseline justify-between gap-2">
-                    <h3 className="font-display italic text-2xl sm:text-3xl text-[#242521]">
+                    <h3 className="font-display font-bold text-2xl sm:text-3xl text-[#242521]">
                       {entry.position}
                     </h3>
                     {entry.link && (

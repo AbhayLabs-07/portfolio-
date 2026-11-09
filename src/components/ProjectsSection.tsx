@@ -148,13 +148,10 @@ export function ProjectsSection() {
             </div>
             <h2
               id="projects-heading"
-              className="text-4xl sm:text-5xl md:text-6xl font-display italic text-[#242521] tracking-tight leading-tight"
+              className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-[#242521] tracking-tight leading-tight"
             >
               Selected Engineering Systems
             </h2>
-          </div>
-          <div className="font-mono text-xs text-[#77766F] max-w-sm">
-            Four flagship implementations across autonomous UAV perception, offline neural agency, deterministic workflows, and tactical ground control.
           </div>
         </div>
 
@@ -180,7 +177,7 @@ export function ProjectsSection() {
                     </span>
                   </div>
 
-                  <h3 className="font-display italic text-2xl sm:text-3xl text-[#242521] leading-tight mb-2">
+                  <h3 className="font-display font-bold text-2xl sm:text-3xl text-[#242521] leading-tight mb-2">
                     {project.title}
                   </h3>
 
