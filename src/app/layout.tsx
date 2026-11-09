@@ -36,6 +36,8 @@ export const metadata: Metadata = {
     'Editorial engineering portfolio of Abhay Vishwakarma — B.Tech Artificial Intelligence & Data Science at TCET Mumbai. Systems in autonomous UAV avionics, offline neural agency, robotics, and deterministic self-healing.',
   keywords: [
     'Abhay Vishwakarma',
+    'Aerial Intelligence Munitions',
+    'A.I.M.',
     'Cooperative UAV Perception System',
     'Sentinel GCS',
     'MEDHA AI',
@@ -60,7 +62,7 @@ export const metadata: Metadata = {
     siteName: 'Abhay Vishwakarma — Engineering Portfolio',
     title: 'Abhay Vishwakarma — Engineering / AI / Robotics',
     description:
-      'Editorial engineering portfolio of Abhay Vishwakarma. Featured systems: Cooperative UAV Perception System, Sentinel GCS, MEDHA AI, and RecoverOps AI.',
+      'Editorial engineering portfolio of Abhay Vishwakarma. Featured systems: Aerial Intelligence Munitions (A.I.M.), Sentinel GCS, MEDHA AI, and RecoverOps AI.',
     images: [
       {
         url: '/images/abhay-portrait.jpg',
@@ -101,10 +103,14 @@ export default function RootLayout({
     '@type': 'Person',
     name: 'Abhay Vishwakarma',
     url: siteUrl,
-    jobTitle: 'AI Systems & UAV Robotics Engineer',
+    jobTitle: 'B.Tech Student, AI & Data Science',
+    affiliation: {
+      '@type': 'CollegeOrUniversity',
+      name: 'Thakur College of Engineering and Technology (TCET), Mumbai',
+    },
     alumniOf: {
       '@type': 'CollegeOrUniversity',
-      name: 'Thakur College of Engineering and Technology (TCET)',
+      name: 'Thakur College of Engineering and Technology (TCET), Mumbai',
     },
     knowsAbout: [
       'Autonomous UAV Systems',

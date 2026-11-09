@@ -1,9 +1,19 @@
 'use client';
 
+import { useMemo } from 'react';
 import { ArrowUpRight } from 'lucide-react';
-import { TIMELINE_ENTRIES } from '@/data/experience';
+import { TIMELINE_ENTRIES, type TimelineEntry } from '@/data/experience';
 
 export function ExperienceSection() {
+  // Sort experience entries in strict reverse-chronological order by start date
+  const sortedEntries = useMemo(() => {
+    return [...TIMELINE_ENTRIES].sort((a, b) => {
+      const timeA = new Date(a.startDate).getTime();
+      const timeB = new Date(b.startDate).getTime();
+      return timeB - timeA;
+    });
+  }, []);
+
   return (
     <section
       id="experience"
@@ -33,59 +43,67 @@ export function ExperienceSection() {
 
         {/* Clean Editorial Timeline */}
         <div className="space-y-12">
-          {TIMELINE_ENTRIES.map((entry) => (
-            <div
-              key={entry.id}
-              className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-6 lg:gap-12 pb-12 border-b border-[#E2DDD1] last:border-b-0 last:pb-0"
-            >
-              {/* Left Column: Metadata */}
-              <div className="space-y-2 font-mono">
-                <div className="text-xs uppercase tracking-wider text-[#E65B35] font-semibold">
-                  {entry.category}
+          {sortedEntries.map((entry: TimelineEntry) => {
+            const orgDisplay =
+              entry.organization && entry.organization.trim().length > 0
+                ? entry.organization
+                : 'Software Developer & Drone Specialist Internship';
+
+            return (
+              <div
+                key={entry.id}
+                className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-6 lg:gap-12 pb-12 border-b border-[#E2DDD1] last:border-b-0 last:pb-0"
+              >
+                {/* Left Column: Metadata */}
+                <div className="space-y-2 font-mono">
+                  <div className="text-xs uppercase tracking-wider text-[#E65B35] font-semibold">
+                    {entry.category}
+                  </div>
+                  <div className="text-sm font-semibold text-[#242521]">
+                    {entry.date}
+                  </div>
+                  <div className="text-xs text-[#77766F]">
+                    {orgDisplay}
+                  </div>
                 </div>
-                <div className="text-sm font-semibold text-[#242521]">
-                  {entry.date}
-                </div>
-                <div className="text-xs text-[#77766F]">
-                  {entry.organization}
+
+                {/* Right Column: Role & Narrative */}
+                <div className="space-y-4">
+                  <div className="flex flex-wrap items-baseline justify-between gap-2">
+                    <h3 className="font-display italic text-2xl sm:text-3xl text-[#242521]">
+                      {entry.position}
+                    </h3>
+                    {entry.link && (
+                      <a
+                        href={entry.link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 font-mono text-xs text-[#77766F] hover:text-[#242521] transition-colors focus-visible:outline-[#E65B35]"
+                        aria-label={`${entry.position} ${entry.link.label} (opens in new tab)`}
+                      >
+                        <span>{entry.link.label}</span>
+                        <ArrowUpRight size={12} />
+                      </a>
+                    )}
+                  </div>
+
+                  <p className="text-base text-[#77766F] leading-relaxed font-body">
+                    {entry.description}
+                  </p>
+
+                  {/* Highlights List */}
+                  <div className="space-y-1.5 pt-2 font-mono text-xs text-[#242521]">
+                    {entry.highlights.map((h, i) => (
+                      <div key={i} className="flex items-start gap-2.5">
+                        <span className="text-[#E65B35]">↳</span>
+                        <span className="leading-relaxed">{h}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
-
-              {/* Right Column: Role & Narrative */}
-              <div className="space-y-4">
-                <div className="flex flex-wrap items-baseline justify-between gap-2">
-                  <h3 className="font-display italic text-2xl sm:text-3xl text-[#242521]">
-                    {entry.position}
-                  </h3>
-                  {entry.link && (
-                    <a
-                      href={entry.link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 font-mono text-xs text-[#77766F] hover:text-[#242521] transition-colors"
-                    >
-                      <span>{entry.link.label}</span>
-                      <ArrowUpRight size={12} />
-                    </a>
-                  )}
-                </div>
-
-                <p className="text-base text-[#77766F] leading-relaxed font-body">
-                  {entry.description}
-                </p>
-
-                {/* Highlights List */}
-                <div className="space-y-1.5 pt-2 font-mono text-xs text-[#242521]">
-                  {entry.highlights.map((h, i) => (
-                    <div key={i} className="flex items-start gap-2.5">
-                      <span className="text-[#E65B35]">↳</span>
-                      <span className="leading-relaxed">{h}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
       </div>

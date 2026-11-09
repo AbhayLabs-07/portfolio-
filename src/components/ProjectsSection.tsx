@@ -1,15 +1,99 @@
 'use client';
 
+import { useSyncExternalStore } from 'react';
 import Image from 'next/image';
 import { ArrowUpRight, ImageIcon } from 'lucide-react';
 import { GithubIcon } from '@/components/icons/SocialIcons';
-import { PROJECTS, type Project } from '@/data/projects';
+import { PROJECTS, type Project, type ProjectMediaItem } from '@/data/projects';
 
-interface ProjectScreenshotPlaceholderProps {
+function subscribeToReducedMotion(callback: () => void) {
+  if (typeof window === 'undefined') return () => {};
+  const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  mediaQuery.addEventListener('change', callback);
+  return () => mediaQuery.removeEventListener('change', callback);
+}
+
+function getReducedMotionSnapshot(): boolean {
+  if (typeof window === 'undefined') return false;
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+
+function getReducedMotionServerSnapshot(): boolean {
+  return false;
+}
+
+function usePrefersReducedMotion(): boolean {
+  return useSyncExternalStore(
+    subscribeToReducedMotion,
+    getReducedMotionSnapshot,
+    getReducedMotionServerSnapshot
+  );
+}
+
+interface ProjectMediaFrameProps {
   project: Project;
 }
 
-function ProjectScreenshotFrame({ project }: ProjectScreenshotPlaceholderProps) {
+function ProjectMediaFrame({ project }: ProjectMediaFrameProps) {
+  const prefersReducedMotion = usePrefersReducedMotion();
+
+  // If explicit media item is provided (video or image)
+  const activeMedia: ProjectMediaItem | undefined = project.media
+    ? Array.isArray(project.media)
+      ? project.media[0]
+      : project.media
+    : undefined;
+
+  if (activeMedia) {
+    if (activeMedia.type === 'video') {
+      return (
+        <div className="relative aspect-[16/10] w-full bg-[#EAE6DC] border border-[#CCC6B8] rounded-xs overflow-hidden group">
+          <video
+            src={activeMedia.src}
+            poster={activeMedia.poster}
+            muted
+            playsInline
+            loop
+            autoPlay={!prefersReducedMotion}
+            preload="metadata"
+            className="w-full h-full object-cover"
+            aria-label={activeMedia.alt}
+          />
+          <div className="absolute top-3 left-3 bg-[#FAF9F6]/95 border border-[#CCC6B8] px-2.5 py-1 font-mono text-[11px] text-[#242521]">
+            PROJECT {project.number} {'//'} {project.status.toUpperCase()}
+          </div>
+          {activeMedia.caption && (
+            <div className="absolute bottom-2 left-2 right-2 bg-[#FAF9F6]/95 border border-[#CCC6B8] px-2.5 py-1 font-mono text-[10px] text-[#77766F] truncate">
+              {activeMedia.caption}
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    return (
+      <div className="relative aspect-[16/10] w-full bg-[#EAE6DC] border border-[#CCC6B8] rounded-xs overflow-hidden group">
+        <Image
+          src={activeMedia.src}
+          alt={activeMedia.alt || `${project.title} documentation visual`}
+          fill
+          loading="lazy"
+          className="object-cover group-hover:scale-[1.02] transition-transform duration-500 ease-out"
+          sizes="(max-width: 1024px) 100vw, 600px"
+        />
+        <div className="absolute top-3 left-3 bg-[#FAF9F6]/95 border border-[#CCC6B8] px-2.5 py-1 font-mono text-[11px] text-[#242521]">
+          PROJECT {project.number} {'//'} {project.status.toUpperCase()}
+        </div>
+        {activeMedia.caption && (
+          <div className="absolute bottom-2 left-2 right-2 bg-[#FAF9F6]/95 border border-[#CCC6B8] px-2.5 py-1 font-mono text-[10px] text-[#77766F] truncate">
+            {activeMedia.caption}
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  // Fallback to project.coverImage if configured
   if (project.hasRealScreenshot && project.coverImage) {
     return (
       <div className="relative aspect-[16/10] w-full bg-[#EAE6DC] border border-[#CCC6B8] rounded-xs overflow-hidden group">
@@ -17,6 +101,7 @@ function ProjectScreenshotFrame({ project }: ProjectScreenshotPlaceholderProps) 
           src={project.coverImage}
           alt={`${project.title} photographic documentation`}
           fill
+          loading="lazy"
           className="object-cover group-hover:scale-[1.02] transition-transform duration-500 ease-out"
           sizes="(max-width: 1024px) 100vw, 600px"
         />
@@ -27,16 +112,17 @@ function ProjectScreenshotFrame({ project }: ProjectScreenshotPlaceholderProps) 
     );
   }
 
+  // Clean neutral fallback when no asset is attached (no placeholder braces or TODO)
   return (
     <div className="relative aspect-[16/10] w-full bg-[#F4F1E8] border border-dashed border-[#CCC6B8] rounded-xs flex flex-col items-center justify-center p-6 text-center select-none technical-grid">
       <div className="p-3 bg-[#FAF9F6] border border-[#E2DDD1] text-[#77766F] rounded-xs mb-3">
         <ImageIcon size={22} className="text-[#E65B35]" />
       </div>
-      <div className="font-mono text-xs font-semibold text-[#E65B35] tracking-wide mb-1">
-        &#123;&#123;TODO: screenshot&#125;&#125;
+      <div className="font-mono text-xs font-semibold text-[#242521] tracking-wide mb-1">
+        Engineering Documentation
       </div>
       <div className="font-mono text-[11px] text-[#77766F]">
-        UI screenshot placeholder ({project.title})
+        Visual telemetry capture ({project.title})
       </div>
       <div className="absolute top-3 left-3 bg-[#FAF9F6]/95 border border-[#CCC6B8] px-2.5 py-1 font-mono text-[11px] text-[#242521]">
         PROJECT {project.number} {'//'} {project.status.toUpperCase()}
@@ -80,8 +166,8 @@ export function ProjectsSection() {
               className="flex flex-col justify-between bg-[#FAF9F6] border border-[#E2DDD1] p-6 sm:p-8 rounded-xs hover:border-[#CCC6B8] transition-colors"
             >
               <div className="space-y-6">
-                {/* Visual Panel */}
-                <ProjectScreenshotFrame project={project} />
+                {/* Visual Media Panel */}
+                <ProjectMediaFrame project={project} />
 
                 {/* Header & Category */}
                 <div>
@@ -109,7 +195,7 @@ export function ProjectsSection() {
                     <span>{project.role}</span>
                   </div>
 
-                  {/* Structured 3 Bullets: What it does, What I built, Measurable result */}
+                  {/* Structured 4 Result Rows: What it does, What I built, Verification, Performance */}
                   <div className="space-y-3 pt-4 border-t border-[#E2DDD1] mb-6 font-mono text-xs">
                     <div className="flex items-start gap-2.5">
                       <span className="text-[#E65B35] font-bold text-sm leading-none mt-0.5">↳</span>
@@ -135,11 +221,23 @@ export function ProjectsSection() {
                       <span className="text-[#242521] font-bold text-sm leading-none mt-0.5">↳</span>
                       <div className="text-[#242521] leading-relaxed">
                         <strong className="text-[#77766F] uppercase text-[10px] block tracking-wider">
-                          Measurable result
+                          Verification
                         </strong>
-                        {project.bullets.measurableResult}
+                        {project.bullets.verification || project.bullets.measurableResult}
                       </div>
                     </div>
+
+                    {project.bullets.performance && (
+                      <div className="flex items-start gap-2.5">
+                        <span className="text-[#E65B35] font-bold text-sm leading-none mt-0.5">↳</span>
+                        <div className="text-[#242521] leading-relaxed">
+                          <strong className="text-[#77766F] uppercase text-[10px] block tracking-wider">
+                            Performance
+                          </strong>
+                          {project.bullets.performance}
+                        </div>
+                      </div>
+                    )}
                   </div>
 
                   {/* Tech Stack Tags */}
@@ -153,7 +251,7 @@ export function ProjectsSection() {
                 </div>
               </div>
 
-              {/* Action Links (No Dead or Disabled Case Study Buttons) */}
+              {/* Action Links */}
               <div className="flex items-center gap-4 pt-6 mt-6 border-t border-[#E2DDD1]">
                 {project.links.map((link) => (
                   <a

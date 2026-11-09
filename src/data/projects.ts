@@ -1,5 +1,5 @@
 // src/data/projects.ts
-// Four flagship projects: Cooperative UAV Perception System, MEDHA AI, RecoverOps AI, and Sentinel GCS.
+// Four flagship projects: Aerial Intelligence Munitions, MEDHA AI, RecoverOps AI, and Sentinel GCS.
 // Consistent editorial schema, factual metrics, and verified engineering roles.
 
 export type ProjectStatus = 'Prototype' | 'In development' | 'Stable';
@@ -14,7 +14,17 @@ export interface ProjectLink {
 export interface ProjectBullets {
   whatItDoes: string;
   whatIBuilt: string;
-  measurableResult: string;
+  verification: string;
+  performance?: string;
+  measurableResult?: string; // Kept for backward compatibility
+}
+
+export interface ProjectMediaItem {
+  type: 'image' | 'video';
+  src: string;
+  alt: string;
+  poster?: string; // Required for video
+  caption?: string;
 }
 
 export interface Project {
@@ -29,6 +39,7 @@ export interface Project {
   bullets: ProjectBullets;
   coverImage?: string;
   hasRealScreenshot: boolean;
+  media?: ProjectMediaItem | ProjectMediaItem[];
   tech: string[];
   links: ProjectLink[];
 }
@@ -37,7 +48,7 @@ export const PROJECTS: Project[] = [
   {
     id: 'aim-project',
     number: '01',
-    title: 'Cooperative UAV Perception System',
+    title: 'Aerial Intelligence Munitions',
     subtitle: 'Two-Tier Autonomous Aerial Perception & Coordination',
     category: 'Autonomous UAV Systems & Aerial Robotics',
     status: 'Prototype',
@@ -49,6 +60,9 @@ export const PROJECTS: Project[] = [
         'Mother UAV streams stabilized aerial video to a ground command station running real-time YOLOv8 object detection.',
       whatIBuilt:
         'Mathematical ray projection engine intersecting camera attitude transforms with a WGS-84 Earth ellipsoid to produce geolocated detections, dispatched via low-latency ESP-NOW radio relay.',
+      verification:
+        'Validated hardware-in-the-loop autonomous MAVLink waypoint handover with sub-second coordinate resolution in flight tests.',
+      // performance: Omitted - user to provide flight metrics (detection FPS, relay latency in ms, geolocation error in m) in CONTENT_TODO.md
       measurableResult:
         'Validated hardware-in-the-loop autonomous MAVLink waypoint handover with sub-second coordinate resolution in flight tests.',
     },
@@ -66,7 +80,7 @@ export const PROJECTS: Project[] = [
     links: [
       {
         label: 'GitHub Repository',
-        href: 'https://github.com/AbhayLabs-07/Aerial-Intelligence-Munitions-A.I.M-.git',
+        href: 'https://github.com/AbhayLabs-07/Aerial-Intelligence-Munitions-A.I.M-',
         external: true,
         type: 'github',
       },
@@ -87,6 +101,10 @@ export const PROJECTS: Project[] = [
         'Executes voice commands, Windows application lifecycles, and web workflows locally and air-gapped on standard x86 hardware.',
       whatIBuilt:
         'Custom feed-forward neural network from scratch in pure Python (zero heavy ML dependencies), featuring acoustic wake-word detection, MFCC voice biometrics, and Playwright CDP / Windows UIA automation.',
+      verification:
+        '71 automated test cases passing across core engine and desktop automation suites.',
+      performance:
+        'Sub-50ms local neural intent classification and zero external network latency.',
       measurableResult:
         '71 automated test cases passing with sub-50ms local neural intent classification and zero external network latency.',
     },
@@ -125,6 +143,9 @@ export const PROJECTS: Project[] = [
         'Eliminates naive infinite retry storms by classifying runtime failures into a closed taxonomy with strictly bounded recovery budgets.',
       whatIBuilt:
         'Zero-dependency Python execution core featuring path-jailed filesystem sandboxing, declarative state assertions, and transactional audit logging with SQLite.',
+      verification:
+        '76 automated unit and fault-simulation tests passing across simulated network dropouts, missing dependencies, and corrupt payloads.',
+      // performance: Omitted - user to provide benchmark metrics in CONTENT_TODO.md
       measurableResult:
         '76 automated unit and fault-simulation tests passing across simulated network dropouts, missing dependencies, and corrupt payloads.',
     },
@@ -161,6 +182,10 @@ export const PROJECTS: Project[] = [
         'Provides mission planning, real-time attitude telemetry display, and waypoint commands for ArduPilot multirotor, VTOL, and fixed-wing UAVs.',
       whatIBuilt:
         'Tactical React 18 HUD with MapLibre GL 3D terrain visualization, integrated with a compiled Rust MAVLink 2.0 telemetry core and Android Tauri v2 container.',
+      verification:
+        '194-test regression suite passing across 15 test suites.',
+      performance:
+        'Verified USB OTG hardware radio bridges up to 921,600 baud.',
       measurableResult:
         '194-test regression suite passing across 15 test suites with verified USB OTG hardware radio bridges up to 921,600 baud.',
     },

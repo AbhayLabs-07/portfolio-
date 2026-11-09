@@ -1,8 +1,24 @@
 'use client';
 
-import { Cpu, Radio, Network, Terminal } from 'lucide-react';
+import { Cpu, Radio, Network, Terminal, ArrowUpRight } from 'lucide-react';
 
-const LAB_MODULES = [
+interface LabSpec {
+  label: string;
+  value: string;
+}
+
+interface LabModule {
+  id: string;
+  code: string;
+  title: string;
+  icon: React.ReactNode;
+  focus: string;
+  specs: LabSpec[];
+  technicalNotes: string;
+  evidenceUrl?: string; // Optional evidence link (e.g. lab report, hardware test log, Git repo)
+}
+
+const LAB_MODULES: LabModule[] = [
   {
     id: 'embedded-systems',
     code: 'LAB-01 // HARDWARE',
@@ -17,6 +33,7 @@ const LAB_MODULES = [
     ],
     technicalNotes:
       'Engineered direct ESP-NOW peer-to-peer radio frames bypassing Wi-Fi AP association to achieve low-latency air-to-air telemetry packet dispatch between UAV airframes.',
+    // evidenceUrl: User to provide in CONTENT_TODO.md if desired
   },
   {
     id: 'uav-engineering',
@@ -32,6 +49,7 @@ const LAB_MODULES = [
     ],
     technicalNotes:
       'Implemented safety-interlock logic state machines in Rust, enforcing 7-point pre-flight checks, geofencing limits, airborne disarm protection, and 3D Dubins minimum-turn path trajectories.',
+    // evidenceUrl: User to provide in CONTENT_TODO.md if desired
   },
   {
     id: 'artificial-intelligence',
@@ -47,6 +65,7 @@ const LAB_MODULES = [
     ],
     technicalNotes:
       'Developed vector mathematics projecting camera ray angles and aircraft attitude (roll/pitch/yaw) onto WGS-84 coordinate space to calculate real-world geolocated detections in real time.',
+    // evidenceUrl: User to provide in CONTENT_TODO.md if desired
   },
   {
     id: 'software-engineering',
@@ -62,6 +81,7 @@ const LAB_MODULES = [
     ],
     technicalNotes:
       'Architected air-gapped recovery loops in pure Python standard library that evaluate explicit post-condition domain contracts rather than trusting process exit codes.',
+    // evidenceUrl: User to provide in CONTENT_TODO.md if desired
   },
 ];
 
@@ -141,10 +161,23 @@ export function EngineeringLabSection() {
                 </div>
               </div>
 
-              {/* Status footer with no unverified benchmark claims */}
+              {/* Status footer with Hands-on default or Verified link if evidenceUrl present */}
               <div className="pt-4 mt-6 border-t border-[#E2DDD1] flex items-center justify-between font-mono text-[11px] text-[#77766F]">
                 <span>{module.focus.split(',')[0]}</span>
-                <span className="text-[#242521] font-semibold uppercase">Verified Module</span>
+                {module.evidenceUrl ? (
+                  <a
+                    href={module.evidenceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-[#242521] hover:text-[#E65B35] font-semibold uppercase transition-colors focus-visible:outline-[#E65B35]"
+                    aria-label={`${module.title} — Verified, view evidence (opens in new tab)`}
+                  >
+                    <span>Verified · View evidence</span>
+                    <ArrowUpRight size={12} className="text-[#E65B35]" />
+                  </a>
+                ) : (
+                  <span className="text-[#242521] font-semibold uppercase">Hands-on</span>
+                )}
               </div>
             </div>
           ))}

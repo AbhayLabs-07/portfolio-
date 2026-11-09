@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "check:placeholders": "node scripts/check-placeholders.mjs",
+    "check:links": "node scripts/check-links.mjs"
   },
   "dependencies": {
     "@types/three": "^0.187.0",

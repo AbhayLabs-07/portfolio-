@@ -4,8 +4,9 @@
 export interface TimelineEntry {
   id: string;
   category: 'Education' | 'Engineering' | 'Leadership' | 'Development' | 'Internship';
+  startDate: string; // ISO format (YYYY-MM or YYYY-MM-DD) for deterministic reverse-chronological sorting
   date: string;
-  organization: string;
+  organization?: string;
   position: string;
   description: string;
   highlights: string[];
@@ -16,6 +17,7 @@ export const TIMELINE_ENTRIES: TimelineEntry[] = [
   {
     id: 'sentinel-fullstack',
     category: 'Development',
+    startDate: '2026-10-01',
     date: 'October 2026',
     organization: 'Sentinel GCS Project',
     position: 'Lead Full-Stack & Telemetry Developer',
@@ -34,6 +36,7 @@ export const TIMELINE_ENTRIES: TimelineEntry[] = [
   {
     id: 'recoverops-ai',
     category: 'Development',
+    startDate: '2026-10-01',
     date: 'October 2026',
     organization: 'RecoverOps AI',
     position: 'Systems Architect & Core Developer',
@@ -52,6 +55,7 @@ export const TIMELINE_ENTRIES: TimelineEntry[] = [
   {
     id: 'erc-tcet-vice-chairperson',
     category: 'Leadership',
+    startDate: '2026-09-01',
     date: 'September 2026 – Present',
     organization: 'Electronics & Robotics Club (ERC TCET)',
     position: 'Vice Chairperson',
@@ -65,6 +69,7 @@ export const TIMELINE_ENTRIES: TimelineEntry[] = [
   {
     id: 'medha-ai',
     category: 'Development',
+    startDate: '2026-08-01',
     date: 'August 2026',
     organization: 'MEDHA AI',
     position: 'Creator & AI Systems Architect',
@@ -83,8 +88,9 @@ export const TIMELINE_ENTRIES: TimelineEntry[] = [
   {
     id: 'engineering-internship',
     category: 'Internship',
+    startDate: '2026-05-25',
     date: '25 May 2026 – 5 July 2026',
-    organization: '{{TODO: Internship Organization Name}}',
+    // Organization name omitted pending user provision in CONTENT_TODO.md; fallback handled in UI
     position: 'Software Developer & Drone Specialist',
     description:
       'Worked as Software Developer and Drone Specialist focusing on real-time telemetry communication, flight control protocols, and cooperative drone workflows.',
@@ -97,6 +103,7 @@ export const TIMELINE_ENTRIES: TimelineEntry[] = [
   {
     id: 'innovation-club-chairperson',
     category: 'Leadership',
+    startDate: '2026-05-01',
     date: 'May 2026',
     organization: 'Innovation & Prototyping Club',
     position: 'Chairperson & Lead Instructor',
@@ -111,6 +118,7 @@ export const TIMELINE_ENTRIES: TimelineEntry[] = [
   {
     id: 'btech-education',
     category: 'Education',
+    startDate: '2025-09-01',
     date: 'September 2025 – Present',
     organization: 'Thakur College of Engineering and Technology (TCET), Mumbai',
     position: 'B.Tech in Artificial Intelligence & Data Science',
