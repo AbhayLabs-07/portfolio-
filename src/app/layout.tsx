@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import {
   Instrument_Serif,
   IBM_Plex_Sans,
@@ -201,6 +202,25 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-[#F4F1E8] text-[#242521] antialiased selection:bg-[#E65B35] selection:text-[#FAF9F6]">
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-KBB53NWZ"
+            height="0"
+            width="0"
+            style={{ display: 'none', visibility: 'hidden' }}
+          />
+        </noscript>
+        <Script
+          src="https://www.googletagmanager.com/gtm.js?id=GTM-KBB53NWZ"
+          strategy="afterInteractive"
+        />
+        <Script id="google-tag-manager" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+          `}
+        </Script>
         {children}
       </body>
     </html>
