@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
-import { FAQS } from '@/data/faq';
 import {
   Instrument_Serif,
   IBM_Plex_Sans,
@@ -419,12 +418,18 @@ export default function RootLayout({
           {
             '@type': 'ListItem',
             position: 4,
-            name: 'FAQ',
-            item: `${siteUrl}/#faq`,
+            name: 'About',
+            item: `${siteUrl}/#about`,
           },
           {
             '@type': 'ListItem',
             position: 5,
+            name: 'Experience',
+            item: `${siteUrl}/#experience`,
+          },
+          {
+            '@type': 'ListItem',
+            position: 6,
             name: 'Contact',
             item: `${siteUrl}/#contact`,
           },
@@ -441,19 +446,6 @@ export default function RootLayout({
           addressRegion: 'Maharashtra',
           addressCountry: 'India',
         },
-      },
-      {
-        '@type': 'FAQPage',
-        '@id': `${siteUrl}/#faq`,
-        name: 'Abhay Vishwakarma — Frequently Asked Questions',
-        mainEntity: FAQS.map((faq) => ({
-          '@type': 'Question',
-          name: faq.question,
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: faq.answer,
-          },
-        })),
       },
     ],
   };
