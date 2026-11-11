@@ -1,0 +1,59 @@
+# Abhay Vishwakarma — AI & Robotics Systems Engineer
+
+> Portfolio & Technical Dossier: https://abhay-portfolio-six-jet.vercel.app
+> Undergraduate in B.Tech Artificial Intelligence & Data Science at Thakur College of Engineering and Technology (TCET), Mumbai, India.
+
+## Summary
+Abhay Vishwakarma is an Indian systems engineer, researcher, and developer specializing in:
+- Autonomous Unmanned Aerial Vehicle (UAV) Perception & Avionics
+- Offline & Edge Neural Intelligence Architectures
+- Tactical Ground Control Stations (GCS) & Telemetry
+- Deterministic Reliability Engineering & Self-Healing Systems
+
+## Flagship Engineering Systems
+
+### 1. Aerial Intelligence Munitions (A.I.M.)
+- **Category:** Autonomous UAV Systems & Aerial Robotics
+- **Architecture:** Two-tier autonomous UAV architecture decoupling high-altitude standoff aerial perception from agile waypoint navigation.
+- **Key Technical Capabilities:** Real-time YOLOv8 object detection on aerial video; mathematical ray-projection engine intersecting camera attitude transforms with WGS-84 Earth ellipsoid to derive geolocated coordinates; low-latency ESP-NOW radio relay.
+- **Verification:** Hardware-in-the-loop autonomous MAVLink waypoint handover with sub-second coordinate resolution in flight tests.
+- **Repository:** https://github.com/AbhayLabs-07/Aerial-Intelligence-Munitions-A.I.M-
+
+### 2. MEDHA AI
+- **Category:** Offline Neural Intelligence & Edge Computing
+- **Architecture:** Private, air-gapped local intelligence agent running on consumer x86 hardware without cloud telemetry or external API calls.
+- **Key Technical Capabilities:** Feed-forward neural network written from scratch in pure Python; acoustic wake-word classification; MFCC voice biometrics; Playwright CDP and Windows UIAutomation orchestration.
+- **Verification & Performance:** 71 automated tests passing; sub-50ms local neural intent classification with zero external network latency.
+- **Repository:** https://github.com/AbhayLabs-07/MEDHA-AI
+
+### 3. RecoverOps AI
+- **Category:** Systems Reliability & Fault Recovery
+- **Architecture:** Deterministic workflow execution engine replacing naive infinite retry loops with closed fault taxonomy classification and bounded recovery budgets.
+- **Key Technical Capabilities:** Zero-dependency Python core; path-jailed filesystem sandboxing; declarative state assertions; transactional audit logging via SQLite.
+- **Verification:** 76 automated unit and fault-simulation tests passing across network dropouts, corrupt payloads, and missing dependencies.
+- **Repository:** https://github.com/AbhayLabs-07/recoverops-ai.git
+
+### 4. Sentinel GCS
+- **Category:** Avionics, Telemetry & Flight Control
+- **Architecture:** Cross-platform tactical UAV Ground Control Station for mission planning, real-time telemetry, and safety interlocks.
+- **Key Technical Capabilities:** React 18 HUD with 3D MapLibre GL terrain; compiled Rust MAVLink 2.0 telemetry core; Android Tauri v2 container; USB OTG radio bridge up to 921,600 baud.
+- **Verification:** 194-test regression suite passing across 15 test suites with verified flight-critical safety interlocks.
+- **Repository:** https://github.com/AbhayLabs-07/sentinel.git
+
+## Technical Skills
+- **Languages:** Python 3.11, C++, Rust, TypeScript, JavaScript, SQL
+- **AI & Perception:** YOLOv8, OpenCV, NumPy, Scikit-learn, Audio DSP (MFCC), Geodesy (WGS-84)
+- **Robotics & Avionics:** ArduPilot, MAVLink 2.0, Mission Planner, ESP-NOW, Radio Telemetry (433/915 MHz), USB OTG
+- **Hardware & Embedded:** ESP32, STM32, Raspberry Pi, Arduino, Hardware-in-the-loop (HIL)
+- **Systems & Frameworks:** React 19, Next.js, Tauri v2, MapLibre GL, SQLite, Docker, Linux, Windows UIA
+
+## Verified Experience & Leadership
+- **Software Developer & Drone Specialist (Internship, May–July 2026):** Real-time telemetry, MAVLink protocols, 3D ray projection algorithms, and field flight testing.
+- **Chairperson & Lead Instructor (Innovation & Prototyping Club, May 2026):** Conducted 4-day intensive technical workshop; sole instructor for drone avionics, flight controllers, and autonomous UAV programming.
+- **B.Tech Candidate (TCET Mumbai, 2025–Present):** Specializing in Artificial Intelligence and Data Science.
+
+## Profiles & Contact
+- **Website:** https://abhay-portfolio-six-jet.vercel.app
+- **GitHub:** https://github.com/AbhayLabs-07
+- **LinkedIn:** https://linkedin.com/in/abhay-vishwakarma-6a64153b2
+- **Location:** Mumbai, Maharashtra, India

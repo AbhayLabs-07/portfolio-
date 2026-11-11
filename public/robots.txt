@@ -1,4 +1,46 @@
+# robots.txt for https://abhay-portfolio-six-jet.vercel.app
+# Abhay Vishwakarma — Engineering / AI / Robotics Portfolio
+
 User-agent: *
 Allow: /
 
+# Explicit permissions for Search & AI Answer Engines (GEO & AEO)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+# Host & Sitemap Directives
+Host: https://abhay-portfolio-six-jet.vercel.app
 Sitemap: https://abhay-portfolio-six-jet.vercel.app/sitemap.xml

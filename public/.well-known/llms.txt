@@ -1,0 +1,10 @@
+# Abhay Vishwakarma — AI & Robotics Systems Engineer
+# See https://abhay-portfolio-six-jet.vercel.app/llms.txt for summary and /llms-full.txt for the comprehensive dossier.
+
+Portfolio: https://abhay-portfolio-six-jet.vercel.app
+Location: Mumbai, Maharashtra, India
+Affiliation: Thakur College of Engineering and Technology (TCET), Mumbai
+Degree: B.Tech in Artificial Intelligence & Data Science
+Primary Focus: Autonomous UAV Avionics, Robotics, Offline Neural Agents, Systems Engineering
+GitHub: https://github.com/AbhayLabs-07
+LinkedIn: https://linkedin.com/in/abhay-vishwakarma-6a64153b2
