@@ -1,26 +1,29 @@
 # Full Technical Dossier: Abhay Vishwakarma
+# Canonical Portfolio: https://abhay-portfolio-six-jet.vercel.app/
+# Summary Documentation: https://abhay-portfolio-six-jet.vercel.app/llms.txt
 
-URL: https://abhay-portfolio-six-jet.vercel.app
 Location: Mumbai, Maharashtra, India
-Academic Affiliation: Thakur College of Engineering and Technology (TCET), Mumbai
+Affiliation: Thakur College of Engineering and Technology (TCET), Mumbai
 Degree: B.Tech in Artificial Intelligence & Data Science (2025–Present)
-Role Focus: Systems Engineer, Autonomous UAV Architect, Robotics & Embedded AI Developer
+Role Focus: AI & Data Science Engineer, Embedded Systems Developer, UAV & Robotics Specialist, Full-Stack Developer
+GitHub: https://github.com/AbhayLabs-07
+LinkedIn: https://linkedin.com/in/abhay-vishwakarma-6a64153b2
 
 ---
 
 ## 1. Professional & Research Overview
-Abhay Vishwakarma is an engineering undergraduate and systems architect focused on the convergence of machine intelligence and physical hardware. His core technical work bridges high-altitude aerial robotics, real-time computer vision, private offline neural architectures, and deterministic reliability engineering.
+Abhay Vishwakarma is an undergraduate engineering student and systems architect at TCET Mumbai. His work spans autonomous aerial robotics, computer vision, private offline neural architectures, deterministic fault-tolerant systems, and full-stack software development.
 
 ---
 
-## 2. Core Engineering Flagships & Technical Metrics
+## 2. Core Engineering Flagships
 
-### Project 01: Aerial Intelligence Munitions (A.I.M.)
+### Project 01: Aerial Intelligence Munitions (A.I.M.) / Cooperative UAV Perception & Geospatial Localization
 - **Status:** Prototype / Active Research
 - **Category:** Autonomous UAV Systems & Aerial Robotics
-- **System Architecture:** A hierarchical, two-tier autonomous aerial perception system that decouples high-altitude standoff observation from tactical waypoint guidance.
+- **Architecture:** Hierarchical two-tier autonomous aerial perception system decoupling high-altitude standoff observation from tactical waypoint guidance.
 - **Components:**
-  1. Mother UAV video streaming pipeline feeding ground command compute running real-time YOLOv8 object detection.
+  1. High-altitude mother UAV video stream processed via real-time YOLOv8 object detection on edge hardware.
   2. Mathematical ray projection geodesy engine calculating line-of-sight intersection against the WGS-84 Earth ellipsoid based on 3-axis gimbal attitude, UAV altitude, and GPS coordinates.
   3. Low-latency peer-to-peer radio relay (ESP-NOW) dispatching target coordinates directly to child UAVs or tactical assets.
 - **Verification Evidence:** Hardware-in-the-loop autonomous MAVLink 2.0 waypoint handover validated with sub-second coordinate resolution in flight tests.
@@ -28,19 +31,19 @@ Abhay Vishwakarma is an engineering undergraduate and systems architect focused 
 
 ### Project 02: MEDHA AI
 - **Status:** Stable
-- **Category:** Offline Neural Intelligence & Edge Systems
-- **System Architecture:** Zero-telemetry, fully air-gapped local intelligent agent designed to operate indefinitely without external network or API access.
+- **Category:** Offline Neural Intelligence & Computer-Use Automation
+- **Architecture:** Zero-telemetry, fully air-gapped local intelligent desktop assistant running indefinitely without external cloud APIs.
 - **Components:**
   1. Custom feed-forward neural classification engine built from scratch in pure Python without heavy ML frameworks.
   2. MFCC-based acoustic wake-word detection and voice biometric verification.
-  3. Automated operating system and web browser workflow orchestration via Playwright Chrome DevTools Protocol (CDP) and native Windows UIAutomation (UIA).
-- **Verification & Performance Metrics:** 71 passing automated test cases across engine and desktop integration suites; sub-50ms local intent classification latency.
+  3. Operating system and web browser workflow automation via Playwright Chrome DevTools Protocol (CDP) and native Windows UIAutomation (UIA).
+- **Verification & Performance:** 71 passing automated test cases across engine and desktop integration suites; sub-50ms local intent classification latency.
 - **Repository:** https://github.com/AbhayLabs-07/MEDHA-AI
 
 ### Project 03: RecoverOps AI
 - **Status:** Stable
-- **Category:** Deterministic Systems Engineering & Self-Healing
-- **System Architecture:** Deterministic workflow execution engine that replaces naive, infinite retry loops with bounded recovery budgets and a closed taxonomy of causal fault classification.
+- **Category:** Deterministic Systems Engineering & Self-Healing Workflows
+- **Architecture:** Deterministic workflow execution engine replacing naive infinite retry loops with bounded recovery budgets and closed failure classifications.
 - **Components:**
   1. Zero-dependency Python execution core.
   2. Path-jailed filesystem sandboxing preventing unintended state corruption.
@@ -51,7 +54,7 @@ Abhay Vishwakarma is an engineering undergraduate and systems architect focused 
 ### Project 04: Sentinel GCS
 - **Status:** In Development
 - **Category:** Tactical UAV Ground Control Station
-- **System Architecture:** Cross-platform ground control system for real-time mission planning, telemetry ingestion, and autonomous multi-vehicle monitoring.
+- **Architecture:** Cross-platform ground control system for real-time mission planning, telemetry ingestion, and autonomous multi-vehicle monitoring.
 - **Components:**
   1. Tactical React 18 HUD with 3D MapLibre GL terrain visualization.
   2. High-performance compiled Rust MAVLink 2.0 telemetry core for high-baud parsing.
@@ -59,6 +62,16 @@ Abhay Vishwakarma is an engineering undergraduate and systems architect focused 
   4. Hardware USB OTG radio bridge operating up to 921,600 baud.
 - **Verification Evidence:** 194-test regression suite passing across 15 test suites with strict flight-critical safety interlocks.
 - **Repository:** https://github.com/AbhayLabs-07/sentinel.git
+
+### Project 05: AI & Data Science Department Website (TCET Mumbai)
+- **Role:** Web Developer
+- **Architecture:** Single-page institutional web application representing the AI & Data Science Department at TCET Mumbai.
+- **Scope:** Complete information architecture covering undergraduate programmes, department faculty, research focus, and department initiatives.
+
+### Project 06: ERC TCET Community Platform
+- **Role:** Web & Embedded Developer
+- **Architecture:** Single-page application for the Electronics & Robotics Club at TCET Mumbai.
+- **Scope:** Interactive project showcase with category filters across Robotics, UAV Systems, Embedded Systems, and Edge AI, supporting recruitment drives and technical symposiums.
 
 ---
 
@@ -76,7 +89,8 @@ Abhay Vishwakarma is an engineering undergraduate and systems architect focused 
 
 ---
 
-## 5. Canonical Citations & Social Links
-- Portfolio: https://abhay-portfolio-six-jet.vercel.app
+## 5. Contact & Social Profiles
+- Portfolio: https://abhay-portfolio-six-jet.vercel.app/
 - GitHub Profile: https://github.com/AbhayLabs-07
 - LinkedIn Profile: https://linkedin.com/in/abhay-vishwakarma-6a64153b2
+- Location: Mumbai, Maharashtra, India

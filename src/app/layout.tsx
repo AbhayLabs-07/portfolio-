@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
+import { FAQS } from '@/data/faq';
 import {
   Instrument_Serif,
   IBM_Plex_Sans,
@@ -83,37 +84,47 @@ const siteUrl = 'https://abhay-portfolio-six-jet.vercel.app';
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Abhay Vishwakarma — AI & Robotics Systems Engineer',
+    default: 'Abhay Vishwakarma | AI Engineer, Embedded Systems & UAV Developer',
     template: '%s | Abhay Vishwakarma',
   },
   description:
-    'Editorial engineering portfolio of Abhay Vishwakarma — B.Tech Artificial Intelligence & Data Science at TCET Mumbai. Systems in autonomous UAV avionics, offline neural agency, robotics, and deterministic self-healing.',
+    'Official portfolio of Abhay Vishwakarma — AI & Data Science Engineer at TCET Mumbai. Systems in autonomous UAV perception, offline desktop AI agents (MEDHA AI), self-healing engines (RecoverOps AI), and tactical ground control stations (Sentinel GCS).',
   applicationName: 'Abhay Vishwakarma Portfolio',
   keywords: [
+    // Primary Keywords
     'Abhay Vishwakarma',
-    'Abhay D Vishwakarma',
-    'AbhayLabs-07',
+    'Abhay Vishwakarma AI Engineer',
+    'Abhay Vishwakarma Portfolio',
+    'AI and Data Science Engineer Mumbai',
+    'Embedded Systems Developer',
+    'AI Engineer Portfolio',
+    // Secondary Keywords
+    'UAV Systems Developer',
+    'Robotics Developer',
+    'Computer Vision Developer',
+    'ESP32 Developer',
+    'ArduPilot Developer',
+    'AI Agent Developer',
+    'Python Developer',
+    'Full Stack Developer Mumbai',
+    // Long-Tail & Flagship Terms
+    'AI and Data Science student at TCET Mumbai',
+    'Offline AI desktop assistant developer',
+    'Cooperative UAV perception and localization',
+    'Embedded systems and robotics projects',
+    'AI and machine learning portfolio',
     'Aerial Intelligence Munitions',
     'A.I.M.',
-    'Sentinel GCS',
     'MEDHA AI',
     'RecoverOps AI',
-    'Autonomous UAV Perception',
+    'Sentinel GCS',
     'MAVLink 2.0',
-    'ArduPilot',
-    'UAV Engineering',
-    'Robotics Engineer Mumbai',
-    'AI & Data Science TCET Mumbai',
-    'Thakur College of Engineering and Technology',
-    'Offline Neural Agent',
-    'Tactical Ground Control Station',
-    'Deterministic Systems',
-    'ESP-NOW Relay',
-    'WGS-84 Ray Projection',
+    'WGS-84 Ray Projection Geodesy',
   ],
   authors: [{ name: 'Abhay Vishwakarma', url: siteUrl }],
   creator: 'Abhay Vishwakarma',
   publisher: 'Abhay Vishwakarma',
+  manifest: '/manifest.webmanifest',
   icons: {
     icon: '/favicon.ico',
   },
@@ -121,10 +132,10 @@ export const metadata: Metadata = {
     type: 'profile',
     locale: 'en_IN',
     url: siteUrl,
-    siteName: 'Abhay Vishwakarma — Engineering Portfolio',
-    title: 'Abhay Vishwakarma — AI & Robotics Systems Engineer',
+    siteName: 'Abhay Vishwakarma | Engineering Portfolio',
+    title: 'Abhay Vishwakarma | AI Engineer, Embedded Systems & UAV Developer',
     description:
-      'Editorial engineering portfolio of Abhay Vishwakarma. Featured systems: Aerial Intelligence Munitions (A.I.M.), Sentinel GCS, MEDHA AI, and RecoverOps AI.',
+      'Official engineering portfolio of Abhay Vishwakarma. Featured systems: Aerial Intelligence Munitions, MEDHA AI, RecoverOps AI, and Sentinel GCS.',
     firstName: 'Abhay',
     lastName: 'Vishwakarma',
     username: 'AbhayLabs-07',
@@ -134,15 +145,15 @@ export const metadata: Metadata = {
         url: '/images/abhay-portrait.jpg',
         width: 800,
         height: 1200,
-        alt: 'Abhay Vishwakarma — AI & Robotics Systems Engineer Portfolio',
+        alt: 'Abhay Vishwakarma — AI Engineer, Embedded Systems & UAV Developer',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Abhay Vishwakarma — AI & Robotics Systems Engineer',
+    title: 'Abhay Vishwakarma | AI Engineer, Embedded Systems & UAV Developer',
     description:
-      'Editorial engineering portfolio of Abhay Vishwakarma — B.Tech AI & Data Science at TCET Mumbai. Systems in autonomous UAV perception, robotics, and offline intelligence.',
+      'Official engineering portfolio of Abhay Vishwakarma — B.Tech AI & Data Science at TCET Mumbai. Systems in autonomous UAV perception, robotics, and offline intelligence.',
     images: ['/images/abhay-portrait.jpg'],
   },
   robots: {
@@ -355,54 +366,94 @@ export default function RootLayout({
               },
             },
           },
+          {
+            '@type': 'ListItem',
+            position: 5,
+            item: {
+              '@type': 'CreativeWork',
+              name: 'AI & Data Science Department Portal (TCET)',
+              description:
+                'Institutional single-page application and academic portal representing the AI & Data Science Department at Thakur College of Engineering and Technology (TCET), Mumbai.',
+              creator: {
+                '@id': `${siteUrl}/#person`,
+              },
+            },
+          },
+          {
+            '@type': 'ListItem',
+            position: 6,
+            item: {
+              '@type': 'CreativeWork',
+              name: 'ERC TCET Community Platform',
+              description:
+                'Community platform for the Electronics & Robotics Club at TCET Mumbai featuring interactive project showcases and technical domain hubs.',
+              creator: {
+                '@id': `${siteUrl}/#person`,
+              },
+            },
+          },
         ],
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `${siteUrl}/#breadcrumbs`,
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: siteUrl,
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Projects',
+            item: `${siteUrl}/#projects`,
+          },
+          {
+            '@type': 'ListItem',
+            position: 3,
+            name: 'Engineering Lab',
+            item: `${siteUrl}/#engineering-lab`,
+          },
+          {
+            '@type': 'ListItem',
+            position: 4,
+            name: 'FAQ',
+            item: `${siteUrl}/#faq`,
+          },
+          {
+            '@type': 'ListItem',
+            position: 5,
+            name: 'Contact',
+            item: `${siteUrl}/#contact`,
+          },
+        ],
+      },
+      {
+        '@type': 'CollegeOrUniversity',
+        '@id': 'https://www.tcetmumbai.in/#organization',
+        name: 'Thakur College of Engineering and Technology (TCET), Mumbai',
+        url: 'https://www.tcetmumbai.in/',
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: 'Kandivali East, Mumbai',
+          addressRegion: 'Maharashtra',
+          addressCountry: 'India',
+        },
       },
       {
         '@type': 'FAQPage',
         '@id': `${siteUrl}/#faq`,
         name: 'Abhay Vishwakarma — Frequently Asked Questions',
-        mainEntity: [
-          {
-            '@type': 'Question',
-            name: 'Who is Abhay Vishwakarma?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Abhay Vishwakarma is an AI & Robotics Systems Engineer and B.Tech student in Artificial Intelligence and Data Science at Thakur College of Engineering and Technology (TCET), Mumbai, India. He builds autonomous UAV perception systems, tactical ground control stations, offline neural architectures, and deterministic reliability engines.',
-            },
+        mainEntity: FAQS.map((faq) => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.answer,
           },
-          {
-            '@type': 'Question',
-            name: 'What is Aerial Intelligence Munitions (A.I.M.)?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Aerial Intelligence Munitions (A.I.M.) is a flagship autonomous UAV perception architecture engineered by Abhay Vishwakarma. It decouples high-altitude standoff aerial surveillance from agile navigation using real-time YOLOv8 object detection, WGS-84 ray-projection geodesy, and low-latency ESP-NOW radio relays.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'What engineering projects has Abhay Vishwakarma built?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Abhay has engineered four flagship systems: (1) Aerial Intelligence Munitions (autonomous UAV perception and waypoint handover), (2) MEDHA AI (offline neural agent with 71 passing test suites), (3) RecoverOps AI (deterministic workflow self-healing engine with 76 fault-simulation tests), and (4) Sentinel GCS (tactical UAV ground control station with 194 passing regression tests).',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'What are Abhay Vishwakarma’s primary technical competencies?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Abhay specializes in Python, C++, Rust, TypeScript, MAVLink 2.0, ArduPilot avionics, YOLOv8, OpenCV, MapLibre GL 3D, Tauri v2, React 19, ESP-NOW wireless relays, and embedded microcontrollers such as ESP32 and STM32.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Where can I find Abhay Vishwakarma’s open-source repositories?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Abhay Vishwakarma’s source code repositories are published on GitHub under the organization handle github.com/AbhayLabs-07.',
-            },
-          },
-        ],
+        })),
       },
     ],
   };
